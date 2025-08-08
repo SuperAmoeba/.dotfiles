@@ -13,8 +13,9 @@ let
     my_fetch_lyrics = "~/.dotfiles/hm-configs/musics/utils/my_fetch_album_lyrics.sh ./";
     coverjpg = "~/.dotfiles/hm-configs/musics/utils/album_art_add_jpg.sh";
     coverpng = "~/.dotfiles/hm-configs/musics/utils/album_art_add_png.sh";
-    coverflac = "~/.dotfiles/hm-configs/musics/utils/album_art_add_flac.sh";
-    
+    coverflacjpg = "~/.dotfiles/hm-configs/musics/utils/album_art_add_flac_jpg.sh";
+    coverflacpng = "~/.dotfiles/hm-configs/musics/utils/album_art_add_flac_png.sh";
+
   };
 in
 {
