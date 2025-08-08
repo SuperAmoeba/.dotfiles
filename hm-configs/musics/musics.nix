@@ -6,6 +6,7 @@
     cava
     spek
     flac
+    ffmpeg
 
   ];  
 
