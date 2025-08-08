@@ -50,7 +50,7 @@ get_lyrics_for() {
         --data-urlencode "track_name=${title_try}" \
         --data-urlencode "album_name=${album}" \
         "$LRCLIB_API" \
-        | jq -r ".${field}"
+        | jq -r ".syncedLyrics"
 }
 
 fetch_for_plain() {
@@ -63,10 +63,10 @@ fetch_for_plain() {
     album_cleaned="$(normalize_name_for_api "$album")"
     title_cleaned="$(normalize_name_for_api "$title_try")"
 
-    # echo "→ Querying: artist='${artist}', album='${album_cleaned}', title='${title_cleaned}'"
+    echo "→ Querying: artist='${artist}', album='${album_cleaned}', title='${title_cleaned}'"
 
     # 1. Try to get synced lyrics
-    lyrics="$(get_lyrics_for "$artist" "$album_cleaned" "$title_cleaned" "syncedLyrics")"
+    lyrics="$(get_lyrics_for "$artist" "$album_cleaned" "$title_cleaned")"
 
     # 2. If empty or "null", try stripping "(...)" and retry
     if [ -z "$lyrics" ] || [ "$lyrics" == "null" ]; then
@@ -74,7 +74,7 @@ fetch_for_plain() {
         stripped="$(echo "$title_cleaned" | sed -E 's/ *\([^)]*\)//g')"
         if [ "$stripped" != "$title_cleaned" ]; then
             title_cleaned="$stripped"
-            lyrics="$(get_lyrics_for "$artist" "$album_cleaned" "$title_cleaned" "syncedLyrics")"
+            lyrics="$(get_lyrics_for "$artist" "$album_cleaned" "$title_cleaned")"
         fi
     fi
 
@@ -91,12 +91,13 @@ fetch_for_plain() {
     fi
 
     # 5. Save to .lrc file (even if plain — still a readable format)
-    echo "$lyrics" > "$out_lrc"
+    #echo "$lyrics" > "$out_lrc"
+    echo "$lyrics" | sed -E '/^\[(ar|al|ti):/d' > "$out_lrc"
     echo "✔ Saved lyrics: $(basename "$out_lrc")"
     return 0
 }
 
-shopt -s nullglob
+#shopt -s nullglob
 for ALBUM_DIR in "$ARTIST_DIR"/*/; do
     if [ ! -d "$ALBUM_DIR" ]; then
         continue
@@ -115,11 +116,16 @@ for ALBUM_DIR in "$ARTIST_DIR"/*/; do
         TITLE_RAW="$(clean_title "$ARTIST" "$TITLE_RAW_ORIG")"
         LRC_FILE="${mp3%.mp3}.lrc"
 
-        # Keep track if a lyrics file was already present
-        already_had_lrc=false
         if [ -f "$LRC_FILE" ]; then
-            already_had_lrc=true
+            echo "– Skipping \"$TITLE_RAW\" (already have .lrc)"
+            continue
         fi
+
+        # Keep track if a lyrics file was already present
+        #already_had_lrc=false
+        #if [ -f "$LRC_FILE" ]; then
+        #    already_had_lrc=true
+        #fi
 
         # if ! fetch_for_plain "$ARTIST" "$ALBUM" "$TITLE_RAW" "$LRC_FILE"; then
         #    if [ "$already_had_lrc" = true ]; then

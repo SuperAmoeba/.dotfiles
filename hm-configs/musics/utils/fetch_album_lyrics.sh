@@ -38,7 +38,7 @@ get_lyrics_for() {
         --data-urlencode "track_name=${title_try}" \
         --data-urlencode "album_name=${album}" \
         "$LRCLIB_API" \
-        | jq -r '.syncedLyrics'
+        | tee /tmp/api_response.json | jq -r '.syncedLyrics'
 }
 
 # Attempt a single fetch:
