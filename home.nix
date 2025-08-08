@@ -12,8 +12,7 @@
     ./hm-configs/goofyahhs.nix
     ./hm-configs/hacks.nix
     ./hm-configs/utils.nix
-    ./hm-configs/gaming.nix
-    
+    ./hm-configs/gaming.nix 
     
   ];
 
