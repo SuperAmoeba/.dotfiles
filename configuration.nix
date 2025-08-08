@@ -125,8 +125,7 @@
     jq
     wireshark
     ncurses
-    #wine-staging
-    firefox 
+    #wine-staging 
     #fprintd
     #libfprint-tod
     localsend
