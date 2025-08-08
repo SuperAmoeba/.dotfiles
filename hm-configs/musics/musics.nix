@@ -193,22 +193,14 @@
 											direction: Vertical,
 											panes: [
 												(
-													size: "82%",
+													size: "81%",
 													borders: "ALL",
 													pane: Pane(AlbumArt),
 												),
 												(
-													size: "18%",
+													size: "19%",
 													borders: "NONE",
-													pane: Split(
-														direction: Vertical,
-														panes: [
-															(
-																size: "100%",
-																pane: Pane(Lyrics),
-															),
-														]
-													),
+													pane: Pane(Lyrics),
 												),
 											]
 										),
