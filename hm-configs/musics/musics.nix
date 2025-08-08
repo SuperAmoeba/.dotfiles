@@ -182,23 +182,23 @@
 								direction: Horizontal,
 								panes: [
 									(
-										size: "55%",
+										size: "58%",
 										borders: "ALL",
 										pane: Pane(Queue),
 									),
 									(
-										size: "45%",
+										size: "42%",
 										borders: "NONE",
 										pane: Split(
 											direction: Vertical,
 											panes: [
 												(
-													size: "94%",
+													size: "82%",
 													borders: "ALL",
 													pane: Pane(AlbumArt),
 												),
 												(
-													size: "6%",
+													size: "18%",
 													borders: "NONE",
 													pane: Split(
 														direction: Vertical,
