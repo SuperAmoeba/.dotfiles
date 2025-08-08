@@ -4,6 +4,8 @@
     mpd
     rmpc
     cava
+    spek
+    flac
 
   ];  
 

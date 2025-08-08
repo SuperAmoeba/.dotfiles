@@ -5,7 +5,6 @@
     yazi
     #mako
     bat
-    flac
     
   ];
 
