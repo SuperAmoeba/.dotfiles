@@ -122,6 +122,7 @@
     nerd-fonts.caskaydia-cove
     unzip
     _7zz
+    unrar-free
     jq
     wireshark
     ncurses
