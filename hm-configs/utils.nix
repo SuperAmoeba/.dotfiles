@@ -5,6 +5,7 @@
     yazi
     #mako
     bat
+    dua
     
   ];
 
