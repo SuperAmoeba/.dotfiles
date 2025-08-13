@@ -6,7 +6,8 @@
     #mako
     bat
     dua
-    
+    cpufetch   
+ 
   ];
 
   # Configs
