@@ -16,7 +16,7 @@ let
     coverflacjpg = "~/.dotfiles/hm-configs/musics/utils/album_art_add_flac_jpg.sh";
     coverflacpng = "~/.dotfiles/hm-configs/musics/utils/album_art_add_flac_png.sh";
     flactomp3 = "~/.dotfiles/hm-configs/musics/utils/flac_to_mp3.sh";
-    okgarmin = "sudo";
+    okgarmin = "sudo"; # xD
 
   };
 in
