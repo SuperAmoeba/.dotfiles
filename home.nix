@@ -166,7 +166,8 @@
 
     settings = {
       #color_theme = "/nix/store/pq5wcfcqs2crh7s4ngcvscq7acqz7kq8-btop-1.4.3/share/btop/themes/kyli0x.theme";
-      color_theme = "~/.dotfiles/hm-configs/theme_btop/kyli0x.theme";
+      #color_theme = "~/.dotfiles/hm-configs/theme_btop/kyli0x.theme";
+      color_theme = "kyli0x";
       theme_background = false;
       truecolor = true;
       force_tty = false;
