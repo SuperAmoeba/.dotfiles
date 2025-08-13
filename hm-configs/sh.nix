@@ -72,7 +72,7 @@ in
     keybindings = {
       "ctrl+c" = "copy_or_interrupt";
       "ctrl+v" = "paste_from_clipboard";
-      "ctrl+shift+esc" = "launch btop";
+      #"ctrl+shift+esc" = "launch btop";
     };
   };
 
